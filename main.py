@@ -22,7 +22,7 @@ def weather(city: str):
     :param city: вводим город
     :return: выводим температуру и локацию
     '''
-    owm = OWM('4b4ba7fd4d10e6a206a383cc2bba05dc') #API
+    owm = OWM('4b4ba7fd4d10e6a206a383cc2bba05dc')
     mgr = owm.weather_manager()
     observation = mgr.weather_at_place(city)
     weather = observation.weather
@@ -40,7 +40,7 @@ def get_user_text(message):
     '''
     if message.text == '/weather':
         bot.send_message(message.from_user.id, "Введи название города: ")
-        bot.register_next_step_handler(message, get_weather) #ждет сообщение пользователя и вызывает указанную функцию с аргументом message
+        bot.register_next_step_handler(message, get_weather)
 
 
 def get_weather(message):
@@ -548,8 +548,8 @@ def callback_worker(call):
 
 
 
-conn = sqlite3.connect('/Users/ep/Desktop/project/database1.db', check_same_thread=False)
-cursor = conn.cursor()#передаются заполнители
+conn = sqlite3.connect('/Users/ep/Desktop/project/project.db', check_same_thread=False)
+cursor = conn.cursor()
 
 
 
@@ -570,7 +570,7 @@ def get_text_messages(message):
     :param message: сообщение от пользователя
     :return: заносит сообщение в таблицу
     '''
-    cursor.execute('INSERT INTO database (id_review, review) VALUES (?, ?)',
+    cursor.execute('INSERT INTO database1 (id_rewiev, rewiev) VALUES (?, ?)',
                    (message.from_user.id, message.text))
 
     conn.commit()
