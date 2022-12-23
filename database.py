@@ -3,7 +3,7 @@ import sqlite3
 class Database:
     """Обертка для работы с БД"""
 
-    def __init__(self):
+    def __init__(self):#self- ссылка на сам объект этого класса
         """Инициализация базы данных"""
         self.conn = sqlite3.connect('db/project.db', check_same_thread=False)
         self.cursor = self.conn.cursor()
@@ -25,4 +25,5 @@ class Database:
     def get_reviews(self):
         ''' Получаем все отзывы из базы данных'''
         self.cursor.execute('SELECT review FROM reviews')
-        return self.cursor.fetchall()
+        reviews = [x[0] for x in self.cursor.fetchall()]
+        return reviews
