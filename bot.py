@@ -118,7 +118,7 @@ def get_station(message):
 
 
 @bot.callback_query_handler(func=lambda call: True)
-def callback_worker(call, bot=bot):
+def callback_worker(call):
     '''
     Функция принимает выбранное место и выдает вариант ссылок на развлечения
     :param call: выбранное место
