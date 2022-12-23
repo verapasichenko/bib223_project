@@ -221,7 +221,7 @@ def callback_worker1(call):
 @bot.message_handler(content_types=['text'])
 def handle_bad_message(message):
     ''' Ответ на непонятные сообщения '''
-    if message.text not in ('/start', '/add', '/help', '/weather', '/gor'):
+    if message.text not in ('/start', '/add', '/help', '/weather', '/goroskop'):
         bot.send_message(message.chat.id, text='Я тебя не понимаю. Напиши /start.')
 
 bot.polling(none_stop=True, interval=0)
