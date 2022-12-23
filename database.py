@@ -3,7 +3,7 @@ import sqlite3
 class Database:
     """Обертка для работы с БД"""
 
-    def __init__(self):#self- ссылка на сам объект этого класса, инициализация экземпляров класса после их создания
+    def __init__(self):#self- ссылка на сам объект этого класса, init - инициализация экземпляров класса после их создания
         """Инициализация базы данных"""
         self.conn = sqlite3.connect('db/project.db', check_same_thread=False)
         self.cursor = self.conn.cursor()
